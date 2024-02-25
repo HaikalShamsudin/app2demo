@@ -1,83 +1,64 @@
 package com.Spring.SpringBootMysql.model;
 
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
-@Entity
-@Table(name = "user")
+@Entity //model 
+@Table(name = "users") // menunjukkan model ni drpd table mana (dalam database)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long memberID;
-    @NotBlank
-    private String name;
+    private Long id;
 
     @NotBlank
-    private String emailId;
+    private String username;
+    
+    @NotBlank
+    private String password;
 
-    @JsonIgnore
-    @Column(nullable = false, updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    // Allows dd/MM/yyyy date to be passed into GET request in JSON
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
+    @NotBlank
+    private String email;
 
-    @JsonIgnore
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    // Allows dd/MM/yyyy date to be passed into GET request in JSON
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date updatedAt;
+    @NotBlank
+    private Boolean enabled;
 
-    public Long getMemberID() {
-        return memberID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setMemberID(Long memberID) {
-        this.memberID = memberID;
+    public Long getId() {
+        return id;
     }
 
-    public String getName() {
-        return name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUsername() {
+        return username;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public String getPassword() {
+        return password;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public String getEmail() {
+        return email;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public Boolean getEnabled() {
+        return enabled;
     }
 }
