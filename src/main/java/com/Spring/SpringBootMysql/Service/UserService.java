@@ -3,19 +3,17 @@ package com.Spring.SpringBootMysql.Service;
 
 import com.Spring.SpringBootMysql.model.User;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service()
 public interface UserService {
+    
+    //TODO LIST
+    Iterable<User> getAllUser();
 
-    User findBymemberID(Long memberID);
+    User createdUser(User user);
+    
+    void updatedUser(Long id, User updateUser);
 
-    User findByemailId(String emailId);
-
-    User save(User user);
-
-    User addMember(User user);
-
-    List<User> findAll();
+    void deleteUser(Long id);
 }
