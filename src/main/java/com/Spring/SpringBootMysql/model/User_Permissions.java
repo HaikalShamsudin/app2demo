@@ -36,11 +36,11 @@ public class User_Permissions {
         this.user_id = user_id;
     }
 
-    public Long getPermission_d() {
+    public Long getPermission_id() {
         return permission_id;
     }
 
-    public void setPermission_d(Long permission_id) {
+    public void setPermission_id(Long permission_id) {
         this.permission_id = permission_id;
     }
 }
