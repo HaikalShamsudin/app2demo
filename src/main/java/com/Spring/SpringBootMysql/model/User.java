@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 @Entity //model 
 @Table(name = "users") // menunjukkan model ni drpd table mana (dalam database)
 public class User {
-    @Id
+    @Id //this is for it automatic know it is an id field
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
